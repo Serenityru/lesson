@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    if (window.XMLHttpRequest) {
+        var xml = new XMLHttpRequest();
+    } else {
+        var xml = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xml.open("get", "http://localhost:8090/index.html?product");
+    xml.send();
+    xml.onreadystatechange = function () {
+        if (xml.readyState == 4 && xml.status == 200) {
+            console.log(JSON.parse(xml.responseText));
+        }
+    }
+</script>
+</body>
+</html>
